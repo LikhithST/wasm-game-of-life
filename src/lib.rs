@@ -102,6 +102,18 @@ impl Universe {
         self.to_string()
     }
 
+     pub fn width(&self) -> u32 {
+        self.width
+    }
+
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
+
 }
 
 
