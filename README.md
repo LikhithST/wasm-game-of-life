@@ -82,3 +82,24 @@ Unless you explicitly state otherwise, any contribution intentionally
 submitted for inclusion in the work by you, as defined in the Apache-2.0
 license, shall be dual licensed as above, without any additional terms or
 conditions.
+
+## Integration of WASM with Vite
+
+1.  **Include `pkg` folder**: Ensure the `pkg` folder generated from `wasm-pack build` is included in your project directory.
+
+2.  **Update Dependencies**: Add the local package to your `package.json`:
+    ```json
+    "dependencies": {
+      "wasm-game-of-life": "file:./pkg"
+    }
+    ```
+
+3.  **Create React Component**: Create a React component that imports and uses the WASM module to render the simulation.
+
+4.  **Add Vite Plugins**: Configure `vite.config.ts` with `vite-plugin-wasm` and `vite-plugin-top-level-await` to handle WASM files correctly.
+
+5.  **Install Additional Packages**: Install the necessary dependencies, including `rollup`, `vite-plugin-wasm`, `vite-plugin-top-level-await`, and the dev dependency `esbuild`:
+    ```bash
+    npm install -D rollup vite-plugin-wasm vite-plugin-top-level-await
+    npm install -D esbuild
+    ```
